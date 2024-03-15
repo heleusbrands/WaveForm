@@ -1,9 +1,9 @@
 import numpy as np
 import parselmouth as pm
 from typing import Union, TypeVar
-from xpression.xtract.XT.core import *
-from xpression.xtract.XT.xtract_configs import *
-from xpression.xtract.XT.commands import PraatCommands
+from audio_modules.xtract.XT.core import *
+from audio_modules.xtract.XT.xtract_configs import *
+from audio_modules.xtract.XT.commands import PraatCommands
 
 FeatureType = TypeVar('FeatureType', bound='Feature')
 

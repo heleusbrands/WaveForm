@@ -5,7 +5,7 @@ from ipywidgets import interact, interactive, fixed, interact_manual
 import ipywidgets as widgets
 from typing import TypeVar
 from collections import deque
-from xpression.xtract.XT.xtract_configs import *
+from audio_modules.xtract.XT.xtract_configs import *
 from pydantic import ValidationError
 #import IPython.display
 import array

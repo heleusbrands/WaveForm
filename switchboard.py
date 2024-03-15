@@ -1,6 +1,6 @@
 from __future__ import annotations
 from threading import Event
-from pydantic import BaseModel
+from pydantic.v1 import BaseModel
 from typing import TypeVar, Union, Any
 from rich.style import Style
 from rich.text import Text

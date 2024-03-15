@@ -1,5 +1,5 @@
 from .waveform import *
-from.xpression.xtract.XT.core import *
+from.audio_modules.xtract.XT.core import *
 from pydub import AudioSegment
 import numpy as np
 from multipledispatch import dispatch

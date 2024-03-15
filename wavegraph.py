@@ -1,7 +1,7 @@
 import plotly.graph_objects as go
 import pandas as pd
 import numpy as np
-from xpression.xtract.XT.xtract_configs import *
+from audio_modules.xtract.XT.xtract_configs import *
 from dataclasses import asdict, dataclass
 from typing import Union
 from array import array

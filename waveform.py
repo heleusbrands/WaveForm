@@ -13,8 +13,8 @@ from pydub import AudioSegment
 from pyrubberband.pyrb import __rubberband as rb
 import static_ffmpeg
 
-from xpression.xtract.XT.commands import *
-from xpression.xtract.XT.xtract_configs import *
+from audio_modules.xtract.XT.commands import *
+from audio_modules.xtract.XT.xtract_configs import *
 from xtract import AnalysisGrid
 
 WaveFormObject = TypeVar('WaveFormObject', bound='WaveForm')
