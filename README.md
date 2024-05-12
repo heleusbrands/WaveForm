@@ -165,3 +165,49 @@ wf.reformers.flux.settings.Algorithm = wf.reformers.flux.settings.algorithms.wso
 - Development Status: **In-Progress**
 - Testing Status: **In-Progress**
 - Integration Status: **Not Integrated**
+
+#### Python Interfaces
+
+**Praat (via Parselmouth)**
+
+> Parselmouth graciously provides a direct interface to the Praat library. The python side however, is somewhat incomplete. WaveForm utilizes this interface to build upon and expand it, while integrating it into its ecosystem. 
+
+**Tensorflow**
+
+> WaveForm provides easy integration into Machine Learning architectures though the Tensorflow library. 
+
+**Numpy**
+
+> Numpy forms the base of the WaveForm audio processing, and is essential to many python based audio processing tasks.
+
+**Pydub**
+
+> The pydub library's architecture served as some of the starting inspiration for WaveForm, and is heavily utilized for loading tasks. It's integration provides quick and easy high level simple operations on audio data.
+
+**Pytsmod**
+
+> Pytsmod provides an interface to many state-of-the-art Time-Scale modification algorithms, for advanced time stretching and modification. 
+
+#### Custom Python Interfaces
+
+*<u>Note</u>: Just like the custom C# interfaces, these will likely be provided as standalone modules in the future. However, they are still in varying degrees of development, so for now they exist solely as a part of the WaveForm Library.*
+
+**AIR**
+
+> AIR (Audio Information Research) is a custom numpy.ndarrray subclass, specifically design for handling audio tasks. It extends the base functionality of the numpy array with methods geared toward audio data, as well as additional iterative helpers. In addition, it includes several subclasses designed for the handling of specific audio information, such as frequency, decibel, timescale, pascal, etc. A few examples of the many extended methods include:
+
+- <u>AirLane</u>: *Segments the peaks and valley's of an array from the main "lane" (data), and then provides methods for altering and modifying the those segmented lanes.* 
+- <u>Batching</u>: *Provides several methods for easily segmenting an array into batches.*
+- <u>Pairing</u>:  *Allows for pairing of side by side values in an array into batches*
+- <u>Bluring</u>: *Blurs data within an array by averaging adjacent values*
+- <u>Deviation From Mean</u>: *Provides several methods for obtaining and performing transformations on the deviation from the mean within an array of data*
+- <u>Windows</u>: Provides easy formation and navigation of windowed data.
+- <u>FFT</u>: *Easy formation of FFTs, as well as separation of decibels and frequencies from the FFT*
+- <u>STFT</u>: *Easy formation of STFTs, as well as separation of decibels and frequencies from the STFT*
+- <u>Power</u>: Extracts the power from signal data for each frame in an array.
+- more...
+
+**WaveGraph**
+
+> WaveGraph is a module that's meant to act as universal automatic plotting utility. It reads the format that the date passed to it is in, and chooses an appropriate graph type automatically. If the data is an Air Array subclass, the format is determined based on which subclass contains the data. If not, it determines it based off the dimensionality of the data, and the content of the data, via the NDtype and subsequently the DimensionalType subclasses that are integrated into the Air module, which are designed for analyzing data to try and automatically determine what type of data it represents (i.e. Full Audio Data, Frequency, Decibel, Pascal, etc.)
+
