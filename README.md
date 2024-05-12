@@ -1,3 +1,5 @@
+## WaveForm
+
 <span style="color:#E83A6B;"> by Bloom Research </span>
 ____
 #### Overview
@@ -13,6 +15,8 @@ The Documentation is a work in progress. Will update when it's available. Howeve
 
 
 #### Quick Start
+
+`pip install WaveFormer`
 
 ``` python
 from waveform import WaveForm
