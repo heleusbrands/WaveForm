@@ -1,0 +1,22 @@
+clr==1.0.3
+ipython==8.12.3
+ipython==8.18.1
+ipywidgets==8.1.1
+msl_loadlib==0.10.0
+multipledispatch==1.0.0
+numpy==1.26.4
+pandas==2.2.2
+praat-parselmouth==0.4.3
+plotly==5.18.0
+# pydantic==1.10.13
+pydantic==2.6.4
+pydub==0.25.1
+pyrubberband==0.3.0
+PySide6==6.7.0
+pytsmod==0.3.8
+rich==13.7.1
+scipy==1.13.0
+setuptools==54.2.0
+static_ffmpeg==2.5
+tensorflow==2.15.0
+tensorflow_intel==2.15.0

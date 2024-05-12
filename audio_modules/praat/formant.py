@@ -2,10 +2,9 @@ import numpy as np
 import pandas as pd
 from parselmouth import Sound, Data
 from parselmouth.praat import call
-from functools import singledispatch
 from typing import Optional, Union
 from .configs import Formant, FormantGrid, FormantStats
-from pydantic import PositiveFloat
+from pydantic.v1 import PositiveFloat
 from .core import PraatBase
 from .processor import PraatProcessor
 from typing import TypeVar
@@ -14,7 +13,35 @@ from .handlers import Handler, Handlers
 FormantPathHandle = TypeVar("FormantPathHandle", bound="FormantPathHandler")
 
 class FormantBurg(PraatBase):
-    
+    """
+    Initialize the Formant object.
+
+    Parameters
+    ----------
+    audio : Union[Sound, str, np.ndarray]
+        The audio input as a Sound object, file path, or numpy array.
+    rate : PositiveFloat, optional
+        The sample rate of the audio.
+    time_step : Optional[PositiveFloat], optional
+        The time step for formant analysis.
+    max_number_of_formants : PositiveFloat, optional
+        The maximum number of formants to analyze. Default is 5.0.
+    maximum_formant : float, optional
+        The maximum formant frequency to analyze. Default is 5500.0.
+    window_length : PositiveFloat, optional
+        The length of the analysis window in seconds. Default is 0.025.
+    pre_emphasis_from : PositiveFloat, optional
+        The pre-emphasis frequency. Default is 50.0.
+
+    Returns
+    -------
+    None
+
+    Raises
+    ------
+    None
+    """
+
     def __init__(
         self, 
         audio: Union[Sound, str, np.ndarray],
@@ -65,7 +92,37 @@ class FormantBurg(PraatBase):
         return pd.DataFrame(self.formants.stack.T, columns=self.formants.as_dict().keys())
                 
 class Formants(PraatBase):
-    
+    """
+    Formants class.
+
+    Parameters
+    ----------
+    audio : Union[Sound, str, np.ndarray]
+        The audio input as a Sound object, file path, or numpy array.
+    rate : PositiveFloat, optional
+        The sample rate of the audio.
+
+    Methods
+    -------
+    formants_burgepath(time_step=None, max_number_of_formants=5.0, middle_formant_ceiling=5500.0, window_length=0.025, pre_emphasis_from=50.0, ceiling_step_size=0.05, number_steps_updown=4)
+        Perform formant analysis using the burg algorithm and return the result as a FormantPath object.
+
+    formants_burge(time_step=None, max_number_of_formants=5.0, maximum_formant=5500.0, window_length=0.025, pre_emphasis_from=50.0)
+        Perform formant analysis using the burg algorithm and return the result as a FormantBurg object.
+
+    formants_keepall()
+        Placeholder method.
+
+    formants_sl()
+        Placeholder method.
+
+    formants_robust()
+        Placeholder method.
+
+    formant_path()
+        Placeholder method.
+    """
+
     def __init__(
         self, 
         audio: Union[Sound, str, np.ndarray],
@@ -111,6 +168,44 @@ class Formants(PraatBase):
 
 
 class FormantPath:
+    """
+    FormantPath class.
+
+    Parameters
+    ----------
+    formant_path : object
+        The formant path object.
+
+    Methods
+    -------
+    number_of_candidates()
+        Get the number of candidates.
+
+    ceiling_frequencies()
+        List the ceiling frequencies.
+
+    stress_of_candidate(time_start=0.0, time_end=0.0, candidate_number=5, coefficients_by_track='3 3 3', power=1.25)
+        Get the stress of a specific candidate.
+
+    stress_of_candidates(time_start=0.0, time_end=0.0, coefficients_by_track='3 3 3', power=1.25)
+        List the stress of all candidates.
+
+    optimal_ceiling(time_start=0.0, time_end=0.0, coefficients_by_track='3 3 3', power=1.25)
+        Get the optimal ceiling.
+
+    stress_array(window_length=0.025, coefficient_by_track='3 3 3', power=1.25)
+        Convert the formant path to a stress matrix.
+
+    qsums_array(number_of_tracks=4)
+        Convert the formant path to a qsums matrix.
+
+    transitions_array(number_of_tracks=4)
+        Convert the formant path to a transitions matrix.
+
+    deltas_array(fb_weight=1.0, frequency_change_weight=1.0, stress_weight=1.0, ceiling_change_weight=1.0, intensity_modulation_stepsize=5.0, global_stress_window_length=0.035, coefficient_by_track='3 3 3', power=1.25)
+        Convert the formant path to a deltas matrix.
+    """
+
     def __init__(self, formant_path):
         self._path = formant_path
         self._target = formant_path

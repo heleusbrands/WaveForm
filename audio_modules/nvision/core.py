@@ -1,10 +1,9 @@
-from pydantic import BaseModel, Field
+from pydantic.v1 import BaseModel, Field
 import pandas as pd
 import plotly.graph_objects as go
 import plotly.express as px
 import numpy as np
-from functools import reduce
-from .configs import *
+from .configs import Coordinates, GraphOptions, HeatmapSettings, ScatterSettings, SurfaceSettings
 from typing import Union
 from enum import Enum
 from collections import deque

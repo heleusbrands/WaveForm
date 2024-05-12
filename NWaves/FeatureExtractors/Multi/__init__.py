@@ -1,4 +1,0 @@
-
-from mpeg7spectralfeaturesextractor import Mpeg7SpectralFeaturesExtractor
-from spectralfeaturesextractor import SpectralFeaturesExtractor
-from timedomainfeaturesextractor import TimeDomainFeaturesExtractor

@@ -1,4 +1,4 @@
-from .core import *
+from .core import PositiveFloat, PraatBase
 #from .configs import *
 from .processor import PraatProcessor
 

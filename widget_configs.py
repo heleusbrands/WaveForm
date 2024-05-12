@@ -1,5 +1,5 @@
 from pydantic.v1 import BaseModel
-import pydantic as pyd
+import pydantic.v1 as pyd
 from PySide6.QtCore import Qt, QObject
 from PySide6.QtGui import QPalette, QBrush, QWindow
 from PySide6.QtWidgets import QApplication, QLabel, QPushButton, QWidget

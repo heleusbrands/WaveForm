@@ -3,13 +3,12 @@ import numpy as np
 import math
 from scipy.signal import stft
 from itertools import islice, repeat, chain, tee
-from pydantic import dataclasses
+from pydantic.v1 import dataclasses
 from dataclasses import asdict, dataclass
 from collections import deque
 from enum import Enum
 from .types import ValidTimeDomain, ValidFrequencyDomain, ValidDecibelDomain, ValidPitchDomain, ValidPascalDomain, DomainType, DOMtype
 from audio_modules.core.configs import MethodDecoratorBase
-from inspect import *
 from array import array
 
 
@@ -535,7 +534,7 @@ class AirArray(np.lib.mixins.NDArrayOperatorsMixin, np.ndarray):
 		return AirLane(self, threshold)
 	
 	def airspectrum(self, range_start=50, range_end = 1000):
-		spectrum = AirSpectrum()
+		AirSpectrum()
 		
 	def batched(self, n):
 		"Batch data into tuples of length n. The last batch may be shorter."

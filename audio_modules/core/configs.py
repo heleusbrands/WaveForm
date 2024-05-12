@@ -1,16 +1,11 @@
-import pydantic as pdc
-from pydantic import BaseModel, PrivateAttr, Field
-from typing import Union, Any, TypeVar, Iterable
+import pydantic.v1 as pdc
+from pydantic.v1 import BaseModel, PrivateAttr, Field
+from typing import Union, Any
 from enum import Enum
 from plotly import graph_objects as go
 import pandas as pd
 import numpy as np
-from threading import Event
-from collections import UserDict, UserList
-from tempfile import NamedTemporaryFile
 from multipledispatch import dispatch
-from functools import update_wrapper, wraps
-import os
 import types
 
 

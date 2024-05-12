@@ -1,6 +1,5 @@
 import pandas as pd
 import numpy as np
-from functools import reduce
 from . import air
 from array import array
 from typing import Union

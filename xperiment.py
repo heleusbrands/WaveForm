@@ -1,17 +1,15 @@
-from xtract import *
+from audio_modules.core.informers import *
 from waveform import *
 from IPython.display import Audio, display, clear_output, HTML
 from ipywidgets import interact, interactive, fixed, interact_manual
 import ipywidgets as widgets
-from typing import TypeVar
 from collections import deque
-from audio_modules.xtract.XT.xtract_configs import *
-from pydantic import ValidationError
+from audio_modules.extraction.extract_configs import *
+from pydantic.v1 import ValidationError
 #import IPython.display
 import array
 from IPython.display import clear_output
 from copy import deepcopy
-import time
 import pandas as pd
 import itertools
 import os

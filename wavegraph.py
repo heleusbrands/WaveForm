@@ -1,8 +1,8 @@
 import plotly.graph_objects as go
 import pandas as pd
 import numpy as np
-from audio_modules.xtract.XT.xtract_configs import *
-from dataclasses import asdict, dataclass
+from audio_modules.extraction.extract_configs import BaseModel, Coordinates, GraphOptions, HeatmapSettings, ScatterSettings, SurfaceSettings, TypeVar
+from dataclasses import dataclass
 from typing import Union
 from array import array
 from enum import Enum

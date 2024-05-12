@@ -1,4 +1,0 @@
-,Unnamed: 0,hp_len_harm,hp_len_perc,hp_mask_mode,hp_win_type,hp_win_size,hp_hop_size,hp_zero_pad,hp_fft_shift,pv_win_type,pv_win_size,pv_syn_hop_size,pv_zero_pad,pv_restore_energy,pv_fft_shift,pv_phase_lock,ola_win_type,ola_win_size,ola_syn_hop_size,index
-16,16,10,10,binary,hann,2048,256,0,True,hann,2048,512,0,False,True,False,hann,256,128,203
-22,22,10,10,binary,hann,2048,256,0,True,sin,2048,512,0,True,False,True,sin,256,128,246
-23,23,10,10,binary,hann,2048,256,0,True,sin,2048,512,0,False,True,True,hann,256,128,249

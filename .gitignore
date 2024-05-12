@@ -1,0 +1,6 @@
+build/
+dist/
+*.egg-info/
+.vscode/
+rubberband-sharp.1.0.0/
+__pycache__/

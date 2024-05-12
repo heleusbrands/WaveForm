@@ -1,0 +1,5 @@
+Copyright (c) 2024 Ryan Reed and Bloom Research
+
+This work is licensed under the Creative Commons Attribution 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.
+
+The author(s) of this work assert their moral rights, including the right to be attributed as the author(s) of the work, the right to object to derogatory treatment of the work, and the right to prevent false attribution of the work.

@@ -2,13 +2,10 @@ import numpy as np
 import pandas as pd
 from parselmouth import Sound, SpectralAnalysisWindowShape
 from parselmouth.praat import call
-from functools import singledispatch
-from typing import Any, Optional, Union
 from enum import Enum
 #from ..types import *
 
-from pydantic import PositiveFloat, BaseModel, dataclasses
-from dataclasses import asdict
+from pydantic.v1 import PositiveFloat, BaseModel, dataclasses
 """
 class WaveDtype(Enum):
 	sound = 'Sound'

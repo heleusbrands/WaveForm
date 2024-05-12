@@ -1,7 +1,7 @@
 from __future__ import annotations
 from parselmouth import Matrix
 from parselmouth.praat import call
-from pydantic import dataclasses
+from pydantic.v1 import dataclasses
 import numpy as np
 from .configs import *
 from ..air import WaveArray as wa

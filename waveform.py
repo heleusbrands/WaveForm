@@ -8,14 +8,15 @@ import pytsmod as tsm
 import tensorflow as tf
 from IPython.display import Audio
 from parselmouth import Sound
-from pydantic import BaseConfig, BaseModel
+from pydantic.v1 import BaseConfig, BaseModel
 from pydub import AudioSegment
 from pyrubberband.pyrb import __rubberband as rb
 import static_ffmpeg
 
-from audio_modules.xtract.XT.commands import *
-from audio_modules.xtract.XT.xtract_configs import *
-from xtract import AnalysisGrid
+from audio_modules.extraction.commands import *
+from audio_modules.extraction.extract_configs import *
+#from audio_modules.xtract.XT.xtract_configs import _Pitch
+from audio_modules.core.informers import AnalysisGrid
 
 WaveFormObject = TypeVar('WaveFormObject', bound='WaveForm')
 
@@ -318,7 +319,7 @@ class ReformFlux(Reformer):
         return self 
     
     @property
-    def warping_factor(self):
+    def warping_factor(self) -> float:
         return self.settings.Factor
     
     @warping_factor.setter
@@ -369,7 +370,7 @@ class ReformPitch(Reformer):
         self._use_net_caster = True      
 
     @property
-    def settings(self):
+    def settings(self) -> AnalysisSettings._Pitch:
         return self._settings
     
     @property
@@ -389,7 +390,7 @@ class ReformPitch(Reformer):
         pci = PraatCommands(self.extract_pitch(waveform))
         return pci.down_to_pitch_tier().result
     
-    def pitch_net_caster(self, runs = 4, i = 0, simplify = False, waveform = None):
+    def pitch_net_caster(self, runs = 4, i = 0, simplify = False, waveform = None):# -> tuple:
         if i == 0: self._settings = AnalysisSettings().Pitch
         if not waveform: waveform = self._waveform
         pitch = waveform.forms.S.to_pitch_cc(**self.settings.dict())
@@ -429,7 +430,7 @@ class ReformPitch(Reformer):
         pci = PraatCommands(waveform.forms.sound)
         return pci.to_manipulation(from_pitch=pitch).result
     
-    def match_pitch(self, from_waveform: WaveFormObject):
+    def match_pitch(self, from_waveform: WaveFormObject) -> 'WaveForm':
         """
         Create a modified waveform from a given waveform, by extracting the pitch from
         the provided reference waveform, and using it to replace the current waveforms pitch.
@@ -844,6 +845,13 @@ class Forms:
     @property
     def N(self):
         return self.numpy_array
+    
+    @property
+    def byte(self):
+        if self.numpy_array.dtype != np.float32:
+            audio_data = self.numpy_array.astype(np.float32)
+        else: audio_data = self.numpy_array
+        return audio_data.tobytes()
     
     @property
     def form_analysis(self):

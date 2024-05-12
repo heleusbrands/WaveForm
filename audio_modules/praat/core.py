@@ -5,7 +5,7 @@ from parselmouth import Sound
 from parselmouth.praat import call
 from functools import singledispatchmethod
 from .configs import *
-from pydantic import PositiveFloat
+from pydantic.v1 import PositiveFloat
 
 
 
