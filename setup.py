@@ -9,7 +9,7 @@ with open('readme.md', 'r', encoding='utf-8') as fh:
 
 setup(
     name='WaveFormer',  
-    version='0.1.0', 
+    version='0.1.2', 
     description='A single unified Advanced Audio Processing toolkit, that provides both High-Level and Low-Level approaches to its extensive collection of tools.',
     long_description=long_description,
     author='Bloom Research',
